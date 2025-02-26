@@ -4,24 +4,18 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.om.dch.factory.DriverFactory;
 import org.om.dch.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginSteps {
-
-    LoginPage loginPage;
-    WebDriver driver = new ChromeDriver();
-
-    public LoginSteps() {
-        loginPage = new LoginPage(driver);
-    }
+public class LoginSteps extends DriverFactory {
 
 
     @Given("I am on the askom store login page")
     public void i_am_on_the_askom_store_login_page() {
-        driver.manage().window().maximize();
-        driver.get("https://askomdch.com/account/");
+        initializeDriver("chrome").get("https://askomdch.com/account/");
+        //driver.get("https://askomdch.com/account/");
         
     }
     @When("I enter a username  {string}")

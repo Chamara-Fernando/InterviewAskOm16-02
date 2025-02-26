@@ -16,16 +16,17 @@ public class LoginPage {
     @FindBy(css = "button[value='Log in']")
     private WebElement loginButton;
 
-    WebDriver driver = new ChromeDriver();
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
+    public LoginPage() {
+        super();
     }
 
 
-    public void getUserName(String username) {
-        loginUsername.sendKeys(username);
 
+
+    public LoginPage getUserName(String userName) {
+        loginUsername.sendKeys(userName);
+        return new LoginPage();
     }
 
     public LoginPage getPassword(String password) {

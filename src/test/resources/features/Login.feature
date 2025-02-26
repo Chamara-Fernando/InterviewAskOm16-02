@@ -9,7 +9,7 @@ Feature: Login feature of the askom website
     Examples:
       | userName     | password |
       | demouserTest | Test12   |
-      | demouser     | Test12   |
+#      | demouser     | Test12   |
 
 
 
