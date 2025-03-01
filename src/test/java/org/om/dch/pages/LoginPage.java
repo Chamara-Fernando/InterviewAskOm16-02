@@ -1,5 +1,6 @@
 package org.om.dch.pages;
 
+import org.om.dch.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import static org.om.dch.factory.DriverFactory.initializeDriver;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    private @FindBy(css = "input#username")
+    private @FindBy(id = "username")
     WebElement loginUsername;
 
     private @FindBy(id = "password")
@@ -21,10 +22,8 @@ public class LoginPage {
     WebElement loginButton;
 
 
-     public LoginPage getUserName(String username){
-        loginUsername.clear();
-        loginUsername.sendKeys(username);
-        return this;
+     public void getUserName(String username){
+        sendKeys(loginUsername, username);
         
     }
 
