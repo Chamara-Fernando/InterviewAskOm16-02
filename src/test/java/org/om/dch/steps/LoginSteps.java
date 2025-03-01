@@ -8,13 +8,24 @@ import org.om.dch.factory.DriverFactory;
 import org.om.dch.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginSteps extends DriverFactory {
 
+    private LoginPage loginPage;
+
+
+    public LoginSteps(LoginPage loginPage) {
+        this.loginPage = loginPage;
+
+    }
+
+
 
     @Given("I am on the askom store login page")
-    public void i_am_on_the_askom_store_login_page() {
+    public void i_am_on_the_askom_store_login_page() throws InterruptedException {
         initializeDriver("chrome").get("https://askomdch.com/account/");
+
         //driver.get("https://askomdch.com/account/");
         
     }

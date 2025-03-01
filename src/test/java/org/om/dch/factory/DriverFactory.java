@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverFactory{
 
     public static WebDriver driver;
-    public static LoginPage loginPage;
 
     public static WebDriver initializeDriver(String browser){
         WebDriver driver;

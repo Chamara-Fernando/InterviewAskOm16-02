@@ -1,32 +1,31 @@
 package org.om.dch.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import static org.om.dch.factory.DriverFactory.initializeDriver;
 
 public class LoginPage {
 
-    @FindBy(id = "username")
-    private WebElement loginUsername;
+    private @FindBy(css = "input#username")
+    WebElement loginUsername;
 
-    @FindBy(id = "password")
-    private WebElement loginPassword;
+    private @FindBy(id = "password")
+    WebElement loginPassword;
 
-    @FindBy(css = "button[value='Log in']")
-    private WebElement loginButton;
-
-
-    public LoginPage() {
-        super();
-    }
+    private @FindBy(css = "button[value='Log in']")
+    WebElement loginButton;
 
 
-
-
-    public LoginPage getUserName(String userName) {
-        loginUsername.sendKeys(userName);
-        return new LoginPage();
+     public LoginPage getUserName(String username){
+        loginUsername.clear();
+        loginUsername.sendKeys(username);
+        return this;
+        
     }
 
     public LoginPage getPassword(String password) {
