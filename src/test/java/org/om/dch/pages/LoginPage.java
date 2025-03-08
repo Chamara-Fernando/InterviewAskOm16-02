@@ -1,14 +1,8 @@
 package org.om.dch.pages;
 
-import org.om.dch.base.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.om.dch.utils.Global_Vars;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import static org.om.dch.factory.DriverFactory.initializeDriver;
 
 public class LoginPage extends BasePage {
 
@@ -21,19 +15,28 @@ public class LoginPage extends BasePage {
     private @FindBy(css = "button[value='Log in']")
     WebElement loginButton;
 
-
-     public void getUserName(String username){
-        sendKeys(loginUsername, username);
-        
+    public LoginPage() {
+        super();
     }
 
-    public LoginPage getPassword(String password) {
-        loginPassword.sendKeys(password);
-        return this;
+
+    public void navigateToAsk_Om_Login_Page() {
+        navigateTo_URL(Global_Vars.ASK_OM_DCH_ACCOUNT_PAGE_URL);
+
     }
 
-    public LoginPage getLoginButton() {
+    public void setUsername(String userName) {
+        sendKeys(loginUsername, userName);
+
+    }
+
+
+      public void setPassword(String password) {
+        sendKeys(loginPassword, password);
+    }
+
+    public void getLoginButton() {
         loginButton.click();
-        return this;
+
     }
 }
